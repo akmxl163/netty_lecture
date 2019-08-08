@@ -1,0 +1,5 @@
+本地代码上传到远端仓库
+1.关联到远端
+git remote add origin  https://github.com/akmxl163/netty_lecture.git
+2.合并2个项目
+git pull origin master --allow-unrelated-histories
