@@ -20,7 +20,7 @@ public class SDTest {
         FileChannel inChannel = fin.getChannel();
         FileChannel outChannel = fout.getChannel();
 
-        ByteBuffer buffer = ByteBuffer.allocate(500);
+        ByteBuffer buffer = ByteBuffer.allocateDirect(500);
         int count = 0;
         while (true) {
             buffer.clear();
