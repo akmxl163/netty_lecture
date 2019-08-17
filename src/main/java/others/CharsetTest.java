@@ -29,4 +29,9 @@ public class CharsetTest {
         ByteBuffer encodeBuffer = Charset.forName("GBK").encode(charBuffer);
         outChannel.write(encodeBuffer);
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }
