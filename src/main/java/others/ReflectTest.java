@@ -14,7 +14,7 @@ public class ReflectTest {
         //1.使用
         Properties p = new Properties();
         ClassLoader classLoader = ReflectTest.class.getClassLoader();
-        InputStream is = classLoader.getResourceAsStream("pre.properties");
+        InputStream is = classLoader.getResourceAsStream("application.properties");
         p.load(is);
         String className = p.getProperty("className");
         String methodName = p.getProperty("methodName");

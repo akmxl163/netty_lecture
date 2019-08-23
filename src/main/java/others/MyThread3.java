@@ -1,7 +1,10 @@
 package others;
 
 
+import io.netty.util.concurrent.DefaultThreadFactory;
+
 import java.util.Arrays;
+import java.util.concurrent.ThreadFactory;
 
 public class MyThread3 extends Thread
 {
@@ -24,6 +27,8 @@ public class MyThread3 extends Thread
     public static void main(String[] args)
     {
         Thread thread = new MyThread3(new Work());
+        ThreadFactory threadFactory = new DefaultThreadFactory("name1");
+        threadFactory.newThread(()-> System.out.println("helloworld"));
         thread.start();
     }
 

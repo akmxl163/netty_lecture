@@ -8,6 +8,7 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.nio.channels.spi.SelectorProvider;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 
@@ -15,6 +16,9 @@ public class SelectorTest {
 
     public static void main(String[] args) throws Exception {
         System.out.println("好戏开始了.............");
+        SelectorProvider sp = SelectorProvider.provider();
+        Selector selector0 = sp.openSelector();
+        ServerSocketChannel ssc = sp.openServerSocketChannel();
         int[] ports = {8082};
         Selector selector = Selector.open();
         for (int i = 0; i < ports.length; i++) {
