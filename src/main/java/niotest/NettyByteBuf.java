@@ -9,9 +9,18 @@ import java.nio.charset.Charset;
 
 public class NettyByteBuf {
     public static void main(String[] args) {
-        autoIncrese();
+        heapToDirect();
     }
 
+    //堆内缓存切换到堆外内存，反之同理。
+    //注意directBuf长度一定要刚好，甚至不能长了
+    public static void heapToDirect(){
+        ByteBuf heapBuf = Unpooled.buffer(10);
+        heapBuf.writeInt(233);
+        ByteBuf directBuf = Unpooled.directBuffer(heapBuf.readableBytes());
+        heapBuf.readBytes(directBuf);
+        System.out.println("get direct buffer int=" + directBuf.readInt());
+    }
     public static void autoIncrese(){
 
         ByteBuf bf = Unpooled.buffer(10);
